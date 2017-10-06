@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form class="form-validate">
+	<fieldset name="infos">
+		<field id="firstname"
+		       name="firstname"
+		       type="text"
+		       label="COM_BOOKING_SITE_FORM_FIRSTNAME"
+		       description=""
+		       class="inputbox"
+		       size="100"
+		       default=""
+		       required="true"/>
+
+		<field id="lastname"
+		       name="lastname"
+		       type="text"
+		       label="COM_BOOKING_SITE_FORM_LASTNAME"
+		       description=""
+		       class="inputbox"
+		       size="100"
+		       default=""
+		       required="true"/>
+
+		<field id="email"
+		       name="email"
+		       type="email"
+		       label="COM_BOOKING_SITE_FORM_EMAIL"
+		       description=""
+		       class="inputbox validate-email"
+		       size="100"
+		       default=""
+		       required="true"/>
+
+		<field id="phone"
+		       name="phone"
+		       type="tel"
+		       label="COM_BOOKING_SITE_FORM_PHONE"
+		       description=""
+		       class="inputbox"
+		       size="20"
+		       default=""
+		       required="true"/>
+	</fieldset>
+	<fieldset name="dates">
+		<field id="startdate"
+		       name="startdate"
+		       type="text"
+		       label="COM_BOOKING_SITE_FORM_STARTDATE"
+		       description=""
+		       class="inputbox"
+		       size="20"
+		       default=""
+		       required="true"/>
+
+		<field id="enddate"
+		       name="enddate"
+		       type="text"
+		       label="COM_BOOKING_SITE_FORM_ENDDATE"
+		       description=""
+		       class="inputbox"
+		       size="20"
+		       default=""
+		       required="true"/>
+	</fieldset>
+</form>

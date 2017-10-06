@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.8.0" method="upgrade">
+	<name>COM_BOOKING</name>
+	<creationDate>October 2017</creationDate>
+	<author>Guillaume Harel</author>
+	<authorEmail>guillaume.harel@skazy.nc</authorEmail>
+	<version>0.0.11</version>
+	<description>COM_BOOKING_COMPONENT_DESC</description>
+
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<!-- folder attribute: describe the folder to copy FROM in the package -->
+	<files folder="site">
+		<filename>booking.php</filename>
+		<filename>controller.php</filename>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+	<languages folder="site/language">
+		<language tag="en-GB">en-GB/en-GB.com_booking.ini</language>
+	</languages>
+
+	<!-- folder attribute: describe the folder to copy FROM in the package -->
+	<administration>
+		<menu link="index.php?option=com_booking">COM_BOOKING_COMPONENT_TITLE</menu>
+		<files folder="admin">
+			<filename>booking.php</filename>
+			<filename>controller.php</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin/language">
+			<language tag="en-GB">en-GB/en-GB.com_booking.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_booking.sys.ini</language>
+		</languages>
+	</administration>
+</extension>

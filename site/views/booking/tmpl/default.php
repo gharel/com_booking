@@ -18,12 +18,14 @@ defined('_JEXEC') or die('Restricted access');
 			<div class="controls"><?php echo $field->input; ?></div>
 		</div>
 	<?php endforeach; ?>
+	<?php if($this->list): ?>
 	<div class="control-group">
 		<div class="control-label">
 			<label><?php echo JText::_( 'COM_BOOKING_SITE_FORM_ROOM' ); ?></label>
 		</div>
 		<?php echo $this->list; ?>
 	</div>
+	<?php endif; ?>
 	<?php foreach ($this->form->getFieldset('dates') as $field): ?>
 		<div class="control-group">
 			<div class="control-label"><?php echo $field->label; ?></div>

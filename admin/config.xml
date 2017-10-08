@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset name="greetings"
+	          label="COM_BOOKING_CONFIG_LABEL"
+	          description="COM_BOOKING_CONFIG_DESC">
+		<field name="show_params"
+		       type="radio"
+		       label="COM_BOOKING_FIELD_SHOW_LABEL"
+		       description="COM_BOOKING_FIELD_SHOW_DESC"
+		       default="0">
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+	</fieldset>
+</config>

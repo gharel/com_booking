@@ -16,6 +16,13 @@ class BookingViewBooking extends JViewLegacy {
 		$this->list = $this->get('Rooms');
 		$this->form = $this->get('Form');
 
+		$params = JFactory::getApplication()->getParams('com_booking');
+		$showRooms = $params->get('show_params');
+
+		if(!$showRooms) {
+			$this->list = null;
+		}
+
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
 			JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');

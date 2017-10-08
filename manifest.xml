@@ -4,7 +4,7 @@
 	<creationDate>October 2017</creationDate>
 	<author>Guillaume Harel</author>
 	<authorEmail>guillaume.harel@skazy.nc</authorEmail>
-	<version>0.0.11</version>
+	<version>0.0.12</version>
 	<description>COM_BOOKING_COMPONENT_DESC</description>
 
 	<install> <!-- Runs on install -->
@@ -38,10 +38,16 @@
 
 	<!-- folder attribute: describe the folder to copy FROM in the package -->
 	<administration>
-		<menu link="index.php?option=com_booking">COM_BOOKING_COMPONENT_TITLE</menu>
+		<menu>COM_BOOKING_COMPONENT_TITLE</menu>
+		<submenu>
+			<menu link="option=com_booking&amp;view=booking" view="booking">Booking</menu>
+			<menu link="option=com_booking&amp;view=rooms" view="rooms">Rooms</menu>
+			<menu link="option=com_config&amp;view=component&amp;component=com_booking">Params</menu>
+		</submenu>
 		<files folder="admin">
 			<filename>booking.php</filename>
 			<filename>controller.php</filename>
+			<filename>config.xml</filename>
 			<folder>controllers</folder>
 			<folder>helpers</folder>
 			<folder>models</folder>

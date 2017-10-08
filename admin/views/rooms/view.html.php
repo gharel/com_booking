@@ -55,6 +55,7 @@ class BookingViewRooms extends JViewLegacy {
 		JToolbarHelper::publish('rooms.publish', 'JTOOLBAR_PUBLISH', true);
 		JToolbarHelper::unpublish('rooms.unpublish', 'JTOOLBAR_UNPUBLISH', true);
 		JToolbarHelper::deleteList('', 'rooms.delete');
+		JToolBarHelper::preferences('com_booking');
 	}
 
 	protected function getSortFields() {

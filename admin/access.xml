@@ -7,14 +7,6 @@
 		<action name="core.delete" title="JACTION_DELETE" description="JACTION_DELETE_COMPONENT_DESC"/>
 		<action name="core.edit" title="JACTION_EDIT" description="JACTION_EDIT_COMPONENT_DESC"/>
 	</section>
-	<section name="booking">
-		<action name="core.delete" title="JACTION_DELETE" description="COM_BOOKING_ACCESS_DELETE_DESC"/>
-		<action name="core.edit" title="JACTION_EDIT" description="COM_BOOKING_ACCESS_EDIT_DESC"/>
-	</section>
-	<section name="rooms">
-		<action name="core.delete" title="JACTION_DELETE" description="COM_BOOKING_ACCESS_DELETE_DESC"/>
-		<action name="core.edit" title="JACTION_EDIT" description="COM_BOOKING_ACCESS_EDIT_DESC"/>
-	</section>
 	<section name="room">
 		<action name="core.delete" title="JACTION_DELETE" description="COM_BOOKING_ACCESS_DELETE_DESC"/>
 		<action name="core.edit" title="JACTION_EDIT" description="COM_BOOKING_ACCESS_EDIT_DESC"/>

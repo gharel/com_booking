@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<fieldset name="greetings"
+	<fieldset name="booking"
 	          label="COM_BOOKING_CONFIG_LABEL"
 	          description="COM_BOOKING_CONFIG_DESC">
 		<field name="show_params"
@@ -11,5 +11,17 @@
 			<option value="0">JHIDE</option>
 			<option value="1">JSHOW</option>
 		</field>
+	</fieldset>
+	<fieldset name="permissions"
+	          label="JCONFIG_PERMISSIONS_LABEL"
+	          description="JCONFIG_PERMISSIONS_DESC">
+		<field name="rules"
+		       type="rules"
+		       label="JCONFIG_PERMISSIONS_LABEL"
+		       class="inputbox"
+		       validate="rules"
+		       filter="rules"
+		       component="com_booking"
+		       section="component"/>
 	</fieldset>
 </config>

@@ -18,6 +18,9 @@ class BookingViewRooms extends JViewLegacy {
 		$this->filterForm    = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
 
+		// What Access Permissions does this user have? What can (s)he do?
+		$this->canDo = BookingHelper::getActions();
+
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
 			JError::raiseError(500, implode('<br />', $errors));
@@ -50,12 +53,22 @@ class BookingViewRooms extends JViewLegacy {
 		}
 
 		JToolBarHelper::title($title);
-		JToolbarHelper::addNew('room.add');
-		JToolbarHelper::editList('room.edit');
-		JToolbarHelper::publish('rooms.publish', 'JTOOLBAR_PUBLISH', true);
-		JToolbarHelper::unpublish('rooms.unpublish', 'JTOOLBAR_UNPUBLISH', true);
-		JToolbarHelper::deleteList('', 'rooms.delete');
-		JToolBarHelper::preferences('com_booking');
+
+		if ($this->canDo->get('core.create')) {
+			JToolBarHelper::addNew('room.add', 'JTOOLBAR_NEW');
+		}
+		if ($this->canDo->get('core.edit')) {
+			JToolBarHelper::editList('room.edit', 'JTOOLBAR_EDIT');
+		}
+		if ($this->canDo->get('core.delete')) {
+			JToolbarHelper::publish('rooms.publish', 'JTOOLBAR_PUBLISH', true);
+			JToolbarHelper::unpublish('rooms.unpublish', 'JTOOLBAR_UNPUBLISH', true);
+			JToolBarHelper::deleteList('', 'rooms.delete', 'JTOOLBAR_DELETE');
+		}
+		if ($this->canDo->get('core.admin')) {
+			JToolBarHelper::divider();
+			JToolBarHelper::preferences('com_booking');
+		}
 	}
 
 	protected function getSortFields() {

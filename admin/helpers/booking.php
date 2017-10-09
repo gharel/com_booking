@@ -15,4 +15,8 @@ class BookingHelper extends JHelperContent {
 		JHtmlSidebar::addEntry('Booking', 'index.php?option=com_booking&view=booking', $vName == 'booking');
 		JHtmlSidebar::addEntry('Rooms', 'index.php?option=com_booking&view=rooms', $vName == 'rooms');
 	}
+
+	public static function getActions($component = 'com_booking', $section = '', $id = 0) {
+		return JHelperContent::getActions($component);
+	}
 }

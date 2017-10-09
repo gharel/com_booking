@@ -12,12 +12,16 @@ defined('_JEXEC') or die('Restricted access');
 
 class BookingViewRoom extends JViewLegacy {
 	protected $form = null;
+	protected $canDo;
 
 	public function display($tpl = null) {
 		// Get the Data
 		$this->form   = $this->get('Form');
 		$this->item   = $this->get('Item');
 		$this->script = $this->get('Script');
+
+		// What Access Permissions does this user have? What can (s)he do?
+		$this->canDo = BookingHelper::getActions();
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
@@ -58,10 +62,33 @@ class BookingViewRoom extends JViewLegacy {
 		}
 
 		JToolbarHelper::title($title);
-		JToolbarHelper::apply('room.apply');
-		JToolbarHelper::save('room.save');
-		JToolbarHelper::save2new('room.save2new');
-		JToolbarHelper::cancel('room.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
+
+		// Build the actions for new and existing records.
+		if ($isNew) {
+			// For new records, check the create permission.
+			if ($this->canDo->get('core.create')) {
+				JToolbarHelper::apply('room.apply');
+				JToolbarHelper::save('room.save');
+				JToolbarHelper::save2new('room.save2new');
+			}
+			JToolbarHelper::cancel('room.cancel', 'JTOOLBAR_CANCEL');
+		} else {
+			if ($this->canDo->get('core.edit')) {
+				// We can save the new record
+				JToolbarHelper::apply('room.apply');
+				JToolbarHelper::save('room.save');
+
+				// We can save this record, but check the create permission to see
+				// if we can return to make a new one.
+				if ($this->canDo->get('core.create')) {
+					JToolbarHelper::save2new('room.save2new');
+				}
+			}
+			if ($this->canDo->get('core.create')) {
+				JToolBarHelper::save2copy('room.save2copy');
+			}
+			JToolbarHelper::cancel('room.cancel', 'JTOOLBAR_CLOSE');
+		}
 	}
 
 	protected function setDocument() {

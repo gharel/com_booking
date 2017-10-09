@@ -40,4 +40,10 @@ class BookingModelRoom extends JModelAdmin {
 
 		return $data;
 	}
+
+	protected function canDelete($record) {
+		if (!empty($record->id)) {
+			return JFactory::getUser()->authorise("core.delete", "com_booking.room." . $record->id);
+		}
+	}
 }
